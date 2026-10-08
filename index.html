@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Trợ Lý AI Bản Đồ Nông Nghiệp</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <button class="new-chat-btn" onclick="startNewChat()">+ Cuộc trò chuyện mới</button>
+            <div class="history-list" id="history-list"></div>
+        </div>
+
+        <!-- BẢN ĐỒ -->
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+        <!-- KHUNG CHAT AI -->
+        <div class="chat-container">
+            <div class="chat-header">🌱 Trợ Lý AI Nông Nghiệp</div>
+            <div class="chat-messages" id="chat-messages"></div>
+
+            <div class="image-preview-container" id="image-preview-container" style="display: none;">
+                <img id="image-preview" src="" alt="Xem trước ảnh">
+                <button class="remove-img-btn" onclick="removeSelectedImage()">✕</button>
+            </div>
+
+            <div class="chat-input-area">
+                <label for="image-input" class="attach-btn" title="Gửi ảnh">📷</label>
+                <input type="file" id="image-input" accept="image/*" style="display: none;" onchange="handleImageSelect(event)">
+                <input type="text" id="user-input" placeholder="Hỏi AI về thửa đất, giá cả, thời tiết..." onkeypress="handleKeyPress(event)">
+                <button class="send-btn" onclick="sendMessage()">Gửi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
